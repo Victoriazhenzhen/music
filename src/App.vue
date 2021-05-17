@@ -1,32 +1,34 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
+    <player></player>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import Player from './components/player';
+  import eruda from 'eruda'
 
-#nav {
-  padding: 30px;
+  export default {
+    name: 'app',
+    components: {
+      Player
+    },
+    // 创建实例的时候  添加eruda插件移动端调试工具
+    created(){
+      // 创建一个元素并且添加到文档中
+      const el = document.createElement('div')
+      document.body.appendChild(el)
+      eruda.init({
+        // 插件最终展现在哪个位置
+        container: el,
+        // 配置参数  调式工具所需要用到的
+        tool:['concole', 'elements']
+      })
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
     }
   }
-}
+</script>
+
+<style lang="less" scoped>
 </style>

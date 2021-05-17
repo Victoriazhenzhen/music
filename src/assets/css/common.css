@@ -1,0 +1,39 @@
+html {
+  background-color: #f3f4f9;
+}
+/* 把懒加载时loading状态下的图片缩小 */
+img[lazy="loading"] {
+  transform: scale(0.3);
+}
+.page-info-list {
+  height: calc(100vh - 490px);
+  overflow: hidden;
+}
+.page-view-list {
+  height: calc(100vh - 200px);
+  overflow: hidden;
+  margin-top: 90px;
+}
+.page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f3f4f9;
+  z-index: 9999;
+  /* 超出部分隐藏掉   显示滚动条  不管超出与否  总是显示滚动条 */
+  overflow: scroll;
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s;
+}
+.slide-enter,
+.slide-leave-to {
+  /* 往x轴移100% */
+  transform: translate3d(100%, 0, 0);
+}
+.mt90 {
+  margin-top: 90px;
+}
